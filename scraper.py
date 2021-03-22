@@ -1,3 +1,4 @@
+import sys
 import requests
 from bs4 import BeautifulSoup
 
@@ -14,3 +15,7 @@ def generate_definition(query):
         definition = entry.find("dd").text
         results.append(" ".join(f"{word} = {definition}".split()))
     return "<br>".join(results)
+
+
+if __name__ == "__main__":
+    print(generate_definition(sys.argv[1]))
