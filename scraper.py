@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://krdict.korean.go.kr/dicSearch/search?mainSearchWord={}"
+URL_TEMPLATE = "https://krdict.korean.go.kr/dicSearch/search?mainSearchWord={}"
 
 
 def generate_definition(query):
-    r = requests.get(URL.format(query))
+    r = requests.get(URL_TEMPLATE.format(query))
     soup = BeautifulSoup(r.content, "html.parser")
     entries = soup.find_all("dl", class_="printArea")
     results = []
