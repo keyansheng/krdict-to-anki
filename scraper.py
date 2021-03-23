@@ -15,7 +15,7 @@ def generate_definition(query):
         definitions = entry.find_all("dd")
         result = word
         for definition in definitions:
-            result = f"{result}<br>{''.join(definition.text.split())}"
+            result = f"{result}<br>{' '.join(definition.text.split())}"
         results.append(result)
     return "<br><br>".join(results)
 
